@@ -105,13 +105,50 @@ void emberAfInit()
 {
     emberAfInitializeAttributes(EMBER_BROADCAST_ENDPOINT);
 
-    MATTER_PLUGINS_INIT
+    // MATTER_PLUGINS_INIT
+
+    MatterAccessControlPluginServerInitCallback();
+    MatterAdministratorCommissioningPluginServerInitCallback();
+    MatterBasicInformationPluginServerInitCallback();
+    //MatterColorControlPluginServerInitCallback();
+    MatterDescriptorPluginServerInitCallback();
+    MatterDiagnosticLogsPluginServerInitCallback();
+    //MatterEthernetNetworkDiagnosticsPluginServerInitCallback();
+    MatterFixedLabelPluginServerInitCallback();
+    MatterGeneralCommissioningPluginServerInitCallback();
+    MatterGeneralDiagnosticsPluginServerInitCallback();
+    MatterGroupKeyManagementPluginServerInitCallback();
+    MatterGroupsPluginServerInitCallback();
+    MatterIdentifyPluginServerInitCallback();
+    //MatterLevelControlPluginServerInitCallback();
+    MatterLocalizationConfigurationPluginServerInitCallback();
+    MatterNetworkCommissioningPluginServerInitCallback();
+    //MatterOccupancySensingPluginServerInitCallback();
+    MatterOnOffPluginServerInitCallback();
+    MatterOperationalCredentialsPluginServerInitCallback();
+    MatterOtaSoftwareUpdateRequestorPluginServerInitCallback();
+    MatterSoftwareDiagnosticsPluginServerInitCallback();
+    MatterSwitchPluginServerInitCallback();
+    //MatterThreadNetworkDiagnosticsPluginServerInitCallback();
+    MatterTimeFormatLocalizationPluginServerInitCallback();
+    MatterUserLabelPluginServerInitCallback();
+    MatterWiFiNetworkDiagnosticsPluginServerInitCallback();
 
     emAfCallInits();
 }
 
 // Cluster init functions that don't have a cluster implementation to define
 // them in.
+void MatterAclPluginServerInitCallback() {}
+void MatterPollControlPluginServerInitCallback() {}
+void MatterUnitLocalizationPluginServerInitCallback() {}
+void MatterTimeSynchronizationPluginServerInitCallback() {}
+void MatterProxyValidPluginServerInitCallback() {}
+void MatterProxyDiscoveryPluginServerInitCallback() {}
+void MatterProxyConfigurationPluginServerInitCallback() {}
+void MatterFanControlPluginServerInitCallback() {}
+
+#if 0
 void MatterBallastConfigurationPluginServerInitCallback() {}
 void MatterBooleanStatePluginServerInitCallback() {}
 void MatterElectricalMeasurementPluginServerInitCallback() {}
@@ -157,6 +194,8 @@ void MatterRefrigeratorAndTemperatureControlledCabinetModePluginServerInitCallba
 void MatterOperationalStatePluginServerInitCallback() {}
 void MatterRvcOperationalStatePluginServerInitCallback() {}
 void MatterDishwasherAlarmPluginServerInitCallback() {}
+#endif
+
 // ****************************************
 // Print out information about each cluster
 // ****************************************
@@ -175,6 +214,28 @@ uint16_t emberAfFindClusterNameIndex(ClusterId cluster)
     }
     return 0xFFFF;
 }
+#if 0
+void emberAfCopyInt16u(uint8_t * data, uint16_t index, uint16_t x)
+{
+    data[index]     = (uint8_t)(((x)) & 0xFF);
+    data[index + 1] = (uint8_t)(((x) >> 8) & 0xFF);
+}
+
+void emberAfCopyInt24u(uint8_t * data, uint16_t index, uint32_t x)
+{
+    data[index]     = (uint8_t)(((x)) & 0xFF);
+    data[index + 1] = (uint8_t)(((x) >> 8) & 0xFF);
+    data[index + 2] = (uint8_t)(((x) >> 16) & 0xFF);
+}
+
+void emberAfCopyInt32u(uint8_t * data, uint16_t index, uint32_t x)
+{
+    data[index]     = (uint8_t)(((x)) & 0xFF);
+    data[index + 1] = (uint8_t)(((x) >> 8) & 0xFF);
+    data[index + 2] = (uint8_t)(((x) >> 16) & 0xFF);
+    data[index + 3] = (uint8_t)(((x) >> 24) & 0xFF);
+}
+#endif
 
 void emberAfCopyString(uint8_t * dest, const uint8_t * src, size_t size)
 {

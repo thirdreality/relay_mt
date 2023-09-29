@@ -33,6 +33,7 @@ from builders.qpg import QpgApp, QpgBoard, QpgBuilder
 from builders.telink import TelinkApp, TelinkBoard, TelinkBuilder
 from builders.ti import TIApp, TIBoard, TIBuilder
 from builders.tizen import TizenApp, TizenBoard, TizenBuilder
+from builders.thirdreality import ThirdrealityApp, ThirdrealityBoard, ThirdrealityBuilder
 
 from .target import BuildTarget, TargetPart
 
@@ -586,6 +587,31 @@ def BuildTizenTarget():
 
     return target
 
+def BuildThirdrealityTarget():
+    target = BuildTarget('thirdreality', ThirdrealityBuilder)
+
+    # Boards
+    target.AppendFixedTargets([
+        TargetPart('BL602-NIGHT-LIGHT', board=ThirdrealityBoard.BL602_NIGHT_LIGHT, module_type="BL602"),
+        TargetPart('RELAY', board=ThirdrealityBoard.RELAY, module_type="BL602"),
+        TargetPart('PLUG', board=ThirdrealityBoard.PLUG, module_type="BL602"),
+        TargetPart('NL602', board=ThirdrealityBoard.NL602, module_type="BL706C-22"),
+    ])
+
+    # Apps
+    target.AppendFixedTargets([
+        TargetPart('light', app=BouffalolabApp.LIGHT),
+    ])
+
+    target.AppendModifier('shell', enable_shell=True)
+    target.AppendModifier('115200', baudrate=115200)
+    target.AppendModifier('rpc', enable_rpcs=True)
+    target.AppendModifier('cdc', enable_cdc=True)
+    # enable_resetCnt = False : enable_resetCnt undefined
+    target.AppendModifier('resetCnt', enable_resetCnt=False)
+    target.AppendModifier('rotating_device_id', enable_rotating_device_id=True)
+
+    return target
 
 def BuildBouffalolabTarget():
     target = BuildTarget('bouffalolab', BouffalolabBuilder)
@@ -702,6 +728,7 @@ BUILD_TARGETS = [
     BuildASRTarget(),
     BuildAndroidTarget(),
     BuildBouffalolabTarget(),
+    BuildThirdrealityTarget(),
     Buildcc32xxTarget(),
     BuildCC13x2x7Target(),
     BuildCC13x4Target(),
