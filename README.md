@@ -103,6 +103,10 @@ If this script says the environment is out of date, it can be updated by running
 
 `./scripts/build/build_examples.py --target thirdreality-relay-light build`
 
+*If this compilation error occurs -- ModuleNotFoundError: No module named 'bflb_iot_tool'*
+
+*you can try to install "pip3 install bflb-iot-tool"*
+
 ## Compiled Results
 
 at ./out/thirdreality-relay-light/ directory
@@ -397,9 +401,13 @@ Matter-enabled Amazon Echo devices have built-in software to connect and control
 
 ### Install ThirdReality App
 
-(url to download)
+Prepare an Android or iPhone to install ThirdReality App
 
-Prepare an Android 8.0 or higher phone to install ThirdReality App - app-release.apk
+If the OS version is lower, please try to upgrade to a new one as much as possible
+
+You can download ThirdReality-App from 
+
+https://misc.3reality.com/app/
 
 
 
