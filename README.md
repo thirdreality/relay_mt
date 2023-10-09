@@ -34,6 +34,7 @@
     - [Control the Relay Module](#control-the-relay-module)
     - [OTA upgrade](#ota-upgrade)
 - [Factory Reset](#factory-reset)
+- [Questions and Answers](#questions-and-answers)
 
 # ThirdReality Relay Module
 
@@ -443,4 +444,9 @@ If you see "There is a new version available to update",  Click Download and Ins
 1. Quickly switch and power on 7 times, with an interval of no more than 4 seconds, and then the module will Factory Reset.
 2. During the process the light will go out, and then the brighter red light will light up for half a second, indicating that factory reset start.
 3. Afterwards, the module will automatically start.
-4. If the relay was previously connected to a WiFi, the blue light will remain on after Factory Reset; Otherwise, the blue light will be blinking at one second intervals.
+
+
+
+# Questions and Answers
+
+If you encounter any inconvenience in using our relay products, please refer to <a href="https://github.com/thirdreality/relay_mt/blob/main/docs_3r/FAQ/FAQ_3R.md">FAQ</a> for help.
