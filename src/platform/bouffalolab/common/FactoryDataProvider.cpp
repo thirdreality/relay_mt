@@ -408,6 +408,7 @@ CHIP_ERROR FactoryDataProvider::GetVendorName(char * buf, size_t bufSize)
 #if CONFIG_BOUFFALOLAB_FACTORY_DATA_ENABLE
     int len = 0;
 
+    memset(buf,0,bufSize);
     len = mfd_getVendorName(buf, bufSize);
     if (len > 0)
     {
@@ -454,6 +455,7 @@ CHIP_ERROR FactoryDataProvider::GetProductName(char * buf, size_t bufSize)
 #if CONFIG_BOUFFALOLAB_FACTORY_DATA_ENABLE
     int len = 0;
 
+    memset(buf,0,bufSize);
     len = mfd_getProductName(buf, bufSize);
     if (len > 0)
     {
@@ -500,6 +502,7 @@ CHIP_ERROR FactoryDataProvider::GetPartNumber(char * buf, size_t bufSize)
 #if CONFIG_BOUFFALOLAB_FACTORY_DATA_ENABLE
     int len = 0;
 
+    memset(buf,0,bufSize);
     len = mfd_getPartNumber(buf, bufSize);
     if (len > 0)
     {
@@ -521,6 +524,7 @@ CHIP_ERROR FactoryDataProvider::GetProductURL(char * buf, size_t bufSize)
 #if CONFIG_BOUFFALOLAB_FACTORY_DATA_ENABLE
     int len = 0;
 
+    memset(buf,0,bufSize);
     len = mfd_getProductUrl(buf, bufSize);
     if (len > 0)
     {
@@ -542,6 +546,7 @@ CHIP_ERROR FactoryDataProvider::GetProductLabel(char * buf, size_t bufSize)
 #if CONFIG_BOUFFALOLAB_FACTORY_DATA_ENABLE
     int len = 0;
 
+    memset(buf,0,bufSize);
     len = mfd_getProductLabel(buf, bufSize);
     if (len > 0)
     {
@@ -563,6 +568,7 @@ CHIP_ERROR FactoryDataProvider::GetSerialNumber(char * buf, size_t bufSize)
 #if CONFIG_BOUFFALOLAB_FACTORY_DATA_ENABLE
     int len = 0;
 
+    memset(buf,0,bufSize);
     len = mfd_getSerialNumber(buf, bufSize);
     if (len > 0)
     {
@@ -641,6 +647,7 @@ CHIP_ERROR FactoryDataProvider::GetHardwareVersionString(char * buf, size_t bufS
 #if CONFIG_BOUFFALOLAB_FACTORY_DATA_ENABLE
     int len = 0;
 
+    memset(buf,0,bufSize);
     len = mfd_getHardwareVersionString(buf, bufSize);
     if (len > 0)
     {
